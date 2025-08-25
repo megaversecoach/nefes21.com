@@ -1,0 +1,157 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+	<style>
+		#text {
+			font-size: 0.8em;
+			line-height: 1.2em;
+		}
+
+		#clear:hover {
+			text-decoration: none;
+		}
+	</style>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<title>İnstagram satır arası boşluk bırakma</title>
+	<meta name="description" content="instagram satır arası nasıl boşluk bırakılır.">
+
+
+
+</head>
+<body>
+
+
+<div class="container">
+	<div class="row my-2">
+		<div class="col-12">
+			<h1 class="h5 mb-0">Instagram Satır Yöneticisi</h1>
+			<h2 class="h6 small mt-0">Post açıklamanıza herhangi bir nesne eklemeden boşluk bırakın.</h2>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-12">
+			<!--<button id="add" class="btn btn-outline-success btn-sm"><i class="fas fa-hammer"></i> Fix Line Breaks</button>-->
+			<span id="done" class="small text-success" style="display: none"><i class="far fa-check-circle"></i> Dönüştürüldü</span>
+			<button id="copy" class="btn btn-outline-info btn-sm float-right"><i class="far fa-copy"></i> Yazıyı kopyala</button>
+		</div>
+	</div>
+	<div class="row mt-2">
+		<div class="col-12">
+			<small class="d-inline-block "><span class="text-muted"><span id="counter">0</span>/2200 (en fazla instagram açıklama limiti)</span></small>
+			<small class="d-inline-block float-right" style="margin-top: 2px"><a id="clear" href="javascript:void(0)"><i class="far fa-trash-alt"></i> temizle</a></small>
+		</div>
+
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<textarea class="form-control" id="text" rows="10" placeholder="Metni yapıştırın veya yazın"></textarea>
+		</div>
+	</div>
+
+	<div class="row mt-2">
+		<div class="col-12 small">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 small">
+			<h3 class="h6">Nasıl Kullanılır?</h3>
+			<ol>
+				<li>Metninizi yapıştırın veya yazın</li>
+				<li>Kopyala butonuna tıklayın</li>
+			</ol>
+			<p>Bu araç, instagram başlığınızdaki satır sonlarına görünmez sembol ekler.</p>
+			<p>Satır sonları içeren başlığınızın okunması ve anlaşılması daha kolaydır.
+				İnstagram'daki paragraflar varsayılan olarak bozuktur ve bu sayfa sayesinde düzeltebilirsiniz..
+				Bu araç, başlığınızdaki beklenmedik kesikli satır sonlarını önlemek için "gizli sembol" kullanır.
+			</p>
+
+			</div>
+	</div>
+</div>
+
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+
+
+<script>
+	jQuery(function ($) {
+
+		// $('#add').click(function () {
+		// 	var text = $('#text').val();
+		// 	text = text.replace(/\u2800/g, '');
+		// 	text = text.replace(/\n/g, "\u2800\n");
+		// 	$('#text').val(text).trigger('input');
+		// });
+
+		$('#copy').click(function () {
+			if (isOS()) {
+				var textArea = document.getElementById('text');
+				var range = document.createRange();
+				var selection = window.getSelection();
+				range.selectNodeContents(textArea);
+				selection.removeAllRanges();
+				selection.addRange(range);
+				textArea.setSelectionRange(0, 999999);
+
+			} else {
+				$('#text').select();
+				document.execCommand('copy');
+			}
+		});
+		$('#clear').click(function () {
+			if (confirm('Are you sure you want to delete this text?')) {
+				$('#text').val('').trigger('input');
+			}
+		});
+
+		$('#text').attr('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;').on('input change', function () {
+			this.style.height = 'auto';
+			this.style.height = (this.scrollHeight) + 'px';
+			var text = $(this).val();
+
+			if (!text || (text.match(/\n/g) && text.match(/\u2800\n/g) && text.match(/\n/g).length !== text.match(/\u2800\n/g).length)) {
+				$('#done').hide();
+			}
+
+			text = text.replace(/\u2800/g, '');
+			text = text.replace(/\n/g, "\u2800\n");
+			$(this).val(text);
+
+			localStorage.setItem('text', text)
+			$('#counter').text(text.length)
+
+			if (text && text.match(/\n/g) && text.match(/\u2800\n/g) && text.match(/\n/g).length === text.match(/\u2800\n/g).length) {
+				$('#done').fadeIn();
+			}
+		});
+
+		$('#text').val(localStorage.getItem('text')).trigger('input');
+	});
+
+	function isOS() {
+		return navigator.userAgent.match(/ipad|iphone/i);
+	}
+
+</script>
+
+
+
+</body>
+</html>

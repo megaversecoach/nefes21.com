@@ -1,0 +1,9 @@
+<?php $config = array(
+    "database_type"=>"mysql",
+    "database_name"=>"nefes03_server",
+    "server"=>"localhost",
+    "username"=>"nefes03_server",
+    "password"=>"1416174ss",
+    "charset"=>"utf8",
+    "port"=>3306,
+    "encryption_key"=>"bade9fe1508975941365b0ce9e851e7f431774246518db392dad5b6bf2f1127d" ); ?>

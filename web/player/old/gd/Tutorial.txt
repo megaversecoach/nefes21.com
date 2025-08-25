@@ -1,0 +1,21 @@
+Cara Instalasi :
+
+1. upload and extract proxy1.7.zip
+2. upload db.sql ke phpmyadmin
+3. ubah URL https://demo.pecintadrama.com dengan domain anda di database
+3. setting user database di config.php
+4. login ke : domain.com/admin
+
+User : demo@demo.com
+Pass : 12345678
+
+Cara Merubah Iklan Video SKID AD (VAST) :
+
+1. Masuk ke dalam templates\jwplayer\template.php
+2. Pada Line 34 dan/atau Line 39, silahkan masukkan URL XML Tag Iklan VAST Anda
+
+Pengertian offset pada Settingan Iklan :
+
+pre : iklan muncul sebelum video di play
+post : iklan muncul setelah video selesai
+50% : iklan muncul pada pertengahan video

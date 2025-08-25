@@ -1,0 +1,1 @@
+<script src="https://nefes21.com/ads/banner.js"></script>

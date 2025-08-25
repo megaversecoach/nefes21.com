@@ -1,0 +1,10 @@
+<?php
+include(dirname(__FILE__,2).'/framework/config.php');
+include(ROOT.'/framework/Helper.class.php');
+include(ROOT.'/framework/Proxy.class.php');
+include(ROOT.'/framework/Cache.class.php');
+include(ROOT.'/framework/Stream.class.php');
+include(ROOT.'/framework/sources/GDrive.class.php');
+include(ROOT.'/framework/Link.class.php');
+include(ROOT.'/framework/Database.class.php');
+?>

@@ -1,0 +1,36 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^stream/(.*)?$ stream/index.php?a=$1 [QSA,NC,L]
+
+RewriteRule ^d/(.+)/(.+)$ ./download.php?id=$1&act=$2 [L,QSA,NC]
+RewriteRule ^d/ ./download.php
+
+
+
+
+#redirect http to https
+
+RewriteEngine On
+
+RewriteCond %{HTTPS} off
+
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+
+
+## Application Handler
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.*)?$ index.php?a=$1	[QSA,NC,L]
+
+
+
+
+

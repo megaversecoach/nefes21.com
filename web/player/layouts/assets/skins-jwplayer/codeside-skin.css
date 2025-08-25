@@ -1,0 +1,16 @@
+.jw-display-icon-container.jw-display-icon-display .jw-svg-icon-play path {
+    display: none
+}
+
+.jw-display-icon-container.jw-display-icon-display .jw-svg-icon-play {
+    background-image: url(./svg/playicon.svg);
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.jw-display-icon-container.jw-display-icon-display:hover .jw-svg-icon-play {
+    background-image: url(./svg/playicon-hover.svg);
+    background-size: contain;
+    background-repeat: no-repeat
+}
+

@@ -1,0 +1,7 @@
+RewriteEngine On
+
+RewriteRule ^g ./index.php
+RewriteRule ^g/ ./index.php
+
+RewriteRule ^d/(.+)/(.+)$ ./download.php?id=$1&act=$2 [L,QSA,NC]
+RewriteRule ^d/ ./download.php
