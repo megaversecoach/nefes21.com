@@ -21,3 +21,6 @@ cache/
 .env.*
 # WordPress olsaydı:
 # wp-config.php
+
+# RAR archives
+*.rar
